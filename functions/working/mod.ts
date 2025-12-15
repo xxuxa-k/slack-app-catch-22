@@ -36,3 +36,14 @@ export default SlackFunction(
     return { completed: false }
   },
 )
+.addViewSubmissionHandler(
+  "first_view",
+  async({ client, body, view }) => {
+    return {
+      response_action: "push",
+      view: {
+        callback_id: "second_view",
+      },
+    }
+  },
+)
